@@ -7,13 +7,21 @@
         <Nullable>disable</Nullable>
 
         <OutputType>Library</OutputType>
-        <TargetFramework>net9.0</TargetFramework>
         <LangVersion>latest</LangVersion>
         <Deterministic>true</Deterministic>
         <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
 
         <IsOSX Condition="'$(RuntimeIdentifier)' == 'osx-x64'">true</IsOSX>
         <IsLinux Condition="'$(RuntimeIdentifier)' == 'linux-x64'">true</IsLinux>
+        <Platforms>Win-x64;Linux-x64</Platforms>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(Platform)'=='Win-x64'">
+        <TargetFramework>net9.0-windows</TargetFramework>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(Platform)'=='Linux-x64'">
+        <TargetFramework>net9.0</TargetFramework>
     </PropertyGroup>
 
     <PropertyGroup>
